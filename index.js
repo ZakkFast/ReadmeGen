@@ -77,7 +77,7 @@ const questions = [
     },
     {
         type: 'checkbox',
-        name: 'usage license',
+        name: 'license',
         choices: [ 'None', 'Apache', 'Common-Development-and Distribution', 'GNU-General-Public', 'MIT', 'Mozilla-Public'],
         validate: licenseInput => {
             if (licenseInput) {
@@ -128,7 +128,7 @@ function init() {
     inquirer.prompt(questions)
     .then(function (userInput) {
         console.log(userInput)
-        writeToFile("README.md", generateMarkdown(userInput))
+        writeToFile("GeneratedREADME.md", generateMarkdown(userInput))
     })
 }
 
