@@ -1,9 +1,9 @@
 // Requires
 const inquirer = require('inquirer')
 const fs = require('fs')
-const genMarkdwon = require('./src/generateMarkdown.js')
-
-// TODO: Create an array of questions for user input
+const genMarkdwon = require('./src/generateMarkdown.js');
+const { toUnicode } = require('punycode');
+// Array of questions for user input
 const questions = [
     {
         name: 'title',
@@ -31,11 +31,85 @@ const questions = [
     {
         name: 'installation',
         message: 'How is your project installed?',
-        validate: (installationInput) => {
+        validate: installationInput => {
             if (installationInput) {
                 return true;    
             } else {
-                console.log('Please')
+                console.log('Please enter install instructions continue. If none please enter N/A.')
+                return false;
+            }
+        }
+    },
+    {
+        name: 'usage',
+        message: 'How do you use your project',
+        validate: usageInput => {
+            if (usageInput) {
+                return true;
+            } else {
+                console.log('Please enter usage details to continue')
+                return false;
+            }
+        }
+    },
+    {
+        name: 'contribution',
+        message: 'How can people contribute to this project?',
+        validate: contributionInput => {
+            if (contributionInput) {
+                return true;
+            } else {
+                console.log('Please enter contribution details. If none please enter N/A')
+                return false
+            }
+        }
+    },
+    {
+        name: 'testing',
+        message: 'How do you test this project?',
+        validate: testingInput => {
+            if (testingInput) {
+                return true;
+            } else {
+                console.log('Please enter testing details. If none please enter N/A')
+                return false;
+            }
+        }
+    },
+    {
+        type: 'checkbox',
+        name: 'usage license',
+        choices: [ 'None', 'Apache', 'Common-Development-and Distribution', 'GNU-General-Public', 'MIT', 'Mozilla-Public'],
+        validate: licenseInput => {
+            if (licenseInput) {
+                return true
+            } else {
+                console.log('Please pick a license for your project.')
+                return false
+            }
+        }
+    },
+    {
+        name: 'gituser',
+        message: 'What is your Github username?',
+        validate: gituser => {
+            if (gituser) {
+                return true;
+            } else {
+                console.log('Please enter your Github username to continue')
+                return false;
+            }
+        }
+    },
+    {
+        name: 'email',
+        message: 'What is your contact email?',
+        validate: emailInput => {
+            if (emailInput) {
+                return true;
+            } else {
+                console.log('Please enter your contact email to continue.')
+                return false;
             }
         }
     }
