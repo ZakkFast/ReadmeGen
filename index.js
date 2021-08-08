@@ -77,14 +77,15 @@ const questions = [
     },
     {
         type: 'checkbox',
-        name: 'license',
-        choices: [ 'None', 'Apache', 'Common-Development-and Distribution', 'GNU-General-Public', 'MIT', 'Mozilla-Public'],
-        validate: licenseInput => {
-            if (licenseInput) {
-                return true
+        name: 'licensing',
+        message: 'Which license applies to your',
+        choices: ['Apache', 'MIT', 'Mozilla-Public', 'GNU-General-Public', 'Common-Development-and Distribution', 'None'],
+        validate: licensingInput => {
+            if (licensingInput) {
+                return true;
             } else {
-                console.log('Please pick a license for your project.')
-                return false
+                console.log('Please select a license to continue');
+                return false;
             }
         }
     },
@@ -111,6 +112,10 @@ const questions = [
                 return false;
             }
         }
+    },
+    {
+        name: 'img',
+        message: 'You can add an image if you like. Enter the url/path, or press enter if you do not want to include an image.',
     }
 ];
 
