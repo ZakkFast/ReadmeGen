@@ -2,7 +2,7 @@
 function generateMarkdown(data) {
   return `# ${data.title}
   ### Licensing:
-  [![license](https://img.shields.io/badge/license-${data.licensing}-blue)](https://shields.io)
+  [![license](https://img.shields.io/badge/license-${data.license}-blue)](https://shields.io)
 
   ### Table of Contents
   
@@ -31,7 +31,7 @@ function generateMarkdown(data) {
 
   ### Contribution:
 
-  ${data.contribution}
+ ${data.contribution}
 
   ### Testing:
 
@@ -39,7 +39,7 @@ function generateMarkdown(data) {
 
   ### Questions:
 
-  - Github: [${data.github}](https://github.com/${data.github})
+  - Github: [${data.gituser}](https://github.com/${data.gituser})
   - Email: ${data.email} `;
 }
 
