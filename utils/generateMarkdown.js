@@ -25,10 +25,6 @@ function generateMarkdown(data) {
 
   ${data.usage}
 
-  ### License:
-
-  ${data.licensing}
-
   ### Contribution:
 
  ${data.contribution}
