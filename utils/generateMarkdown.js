@@ -1,9 +1,9 @@
 //Function to take the user input and make generate the markdown for the readme.md
 function generateMarkdown(data) {
   return `# ${data.title}
-  ### Licensing:
-  [![license](https://img.shields.io/badge/license-${data.license}-blue)](https://shields.io)
-
+  ## Licensing:
+  [![license](https://img.shields.io/badge/license-${data.licensing}-blue)](https://shields.io)
+  
   ### Table of Contents
   
   - [Description](#description)
@@ -17,6 +17,8 @@ function generateMarkdown(data) {
 
   ${data.description}
 
+  <img src="${data.img}">
+
   ### Installation:
 
   ${data.installation}
@@ -25,9 +27,13 @@ function generateMarkdown(data) {
 
   ${data.usage}
 
-  ### Contribution:
+  ## License:
 
- ${data.contribution}
+  ${data.licensing}
+
+  ##Contribution
+ 
+  ${data.contribution}
 
   ### Testing:
 
